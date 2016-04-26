@@ -1,0 +1,7 @@
+{
+  "name": "cruk_sub_theme_example",
+  "private": true,
+  "dependencies": {
+    "bootstrap-sass": "~3.3.6"
+  }
+}
