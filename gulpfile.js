@@ -9,6 +9,7 @@ var gulp = require('gulp'),
     autoprefixer = require('gulp-autoprefixer'),
     concat = require('gulp-concat'),
     uglify = require('gulp-uglify'),
+    replace = require('gulp-replace'),
     pckg = require('./package.json'),
     connect = require('gulp-connect');
 
@@ -32,6 +33,8 @@ gulp.task('build-css', function() {
       addComment: false,
       includeContent: false
     }))
+    .pipe(replace('font-path("bootstrap/glyphicons-halflings', '"../../bower_components/bootstrap-sass/assets/fonts/bootstrap/glyphicons-halflings'))
+    .pipe(replace('"))', '")'))
     .pipe(gulp.dest('./assets/css'));
 });
 
@@ -65,7 +68,7 @@ gulp.task('build-js', function() {
 gulp.task('watch', function() {
   gutil.log('Gulp is watching for changes...');
 
-  gulp.watch(['./assets/scss/**/*.scss'], ['build-css']);
+  gulp.watch(['./assets/scss/*.scss', './assets/scss/**/*.scss'], ['build-css']);
   gulp.watch(['./assets/js/*.js', '!./assets/js/*.min.js'], ['jshint', 'build-js']);
 });
 
@@ -81,4 +84,4 @@ gulp.task('webserver', function() {
 /**
  * Add the default task which follows after watch.
  */
-gulp.task('default', ['watch']);
+gulp.task('default', ['watch', 'webserver']);

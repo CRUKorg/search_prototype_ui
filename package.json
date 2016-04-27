@@ -10,6 +10,7 @@
     "gulp-concat": "^2.6.0",
     "gulp-connect": "^3.2.2",
     "gulp-jshint": "^2.0.0",
+    "gulp-replace": "^0.5.4",
     "gulp-sass": "^2.3.1",
     "gulp-sourcemaps": "^2.0.0-alpha",
     "gulp-uglify": "^1.5.3",

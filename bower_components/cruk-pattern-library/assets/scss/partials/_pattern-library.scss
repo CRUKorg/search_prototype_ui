@@ -1,0 +1,28 @@
+
+body.cr-pattern-library {
+  background-color: white;
+}
+
+/**
+ * Swatch component.
+ */
+.cr-pattern-library-swatch {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  margin-bottom: 10px;
+  border-radius: 50px;
+  color: white;
+
+  &.cr-pattern-library-swatch--primary {
+    background-color: $brand-primary;
+  }
+
+  &.cr-pattern-library-swatch--secondary {
+    background-color: $brand-secondary;
+  }
+
+  &.cr-pattern-library-swatch--tertiary {
+    background-color: $brand-tertiary;
+  }
+}

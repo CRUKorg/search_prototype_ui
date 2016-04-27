@@ -1,0 +1,21 @@
+{
+  "name": "cruk-pattern-library",
+  "ignore": [
+    "docs/",
+    ".gitignore",
+    ".hound.yml",
+    ".scss-lint.yml",
+    "_config.yml",
+    "Gemfile",
+    "Gemfile.lock",
+    "Gruntfile.js"
+  ],
+  "main": [
+    "assets/scss/cruk-base.scss"
+  ],
+  "dependencies": {
+    "bootstrap-sass": "~3.3.6",
+    "primer-markdown": "~2.5.1"
+  },
+  "license": "MIT"
+}

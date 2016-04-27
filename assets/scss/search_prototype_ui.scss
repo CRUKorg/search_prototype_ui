@@ -1,0 +1,61 @@
+
+@import "../../bower_components/cruk-pattern-library/assets/scss/cruk-base";
+
+body {
+  padding: 20px 0;
+}
+
+.cr-form-item {
+  @extend .form-group;
+
+  input {
+    box-shadow: none;
+
+    &:focus {
+      box-shadow: none;
+    }
+  }
+
+  .cr-form-item__label {
+    @extend .sr-only;
+  }
+}
+
+.cr-form-item--search {
+  background: white;
+  border: 2px solid #c8c9c7;
+  border-radius: $border-radius-base;
+  transition: border-color 100ms linear;
+
+  input,
+  .btn {
+    border: 0;
+    background: transparent;
+  }
+
+  .btn:focus {
+    outline: none;
+  }
+
+  .btn:active {
+    box-shadow: none;
+  }
+
+  .glyphicon {
+    top: 3px;
+    color: #C8C9C7;
+    transition: color 100ms linear;
+  }
+}
+
+.cr-form-item--focused {
+  border-color: #00b6ed;
+
+  .glyphicon-search {
+    color: $brand-secondary;
+  }
+}
+
+#results {
+  margin: 30px 0;
+}
