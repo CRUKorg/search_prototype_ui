@@ -5,14 +5,15 @@
     var is_touch_device = 'ontouchstart' in document.documentElement;
 
     function switchIcons() {
-      if ($('#search-input').val() !== '') {
+      var input_value = $('#search-input').val();
+      if (input_value !== '') {
         if ($('.btn .glyphicon').hasClass('glyphicon-search')) {
           $('.btn .glyphicon-search').fadeOut('fast', function(){
             $(this).removeClass('glyphicon-search').addClass('glyphicon-remove').fadeIn('fast');
           });
         }
       }
-      if ($('#search-input').val() === '' && $('.btn .glyphicon').hasClass('glyphicon-remove')) {
+      if (input_value === '' && $('.btn .glyphicon').hasClass('glyphicon-remove')) {
         $('.btn .glyphicon-remove').fadeOut('fast', function(){
           $(this).removeClass('glyphicon-remove').addClass('glyphicon-search').fadeIn('fast');
         });
@@ -27,7 +28,12 @@
     }).on('blur', function(){
       $(this).parent().removeClass('cr-form-item--focused');
     }).on('input', function(){
-      if (is_touch_device && $(this).val() === '') {
+      var input_value = $(this).val();
+      /**
+       * If the inputs value has changed since the last search or is now empty
+       * then switch the icon.
+       */
+      if (is_touch_device && input_value === '') {
         switchIcons();
       }
     });
