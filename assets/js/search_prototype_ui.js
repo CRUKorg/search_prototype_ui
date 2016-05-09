@@ -2,8 +2,9 @@
   'use strict';
   $(document).ready(function() {
     var last_search = '';
+    var is_touch_device = 'ontouchstart' in document.documentElement;
 
-    function switchClasses() {
+    function switchIcons() {
       if ($('#search-input').val() !== '') {
         if ($('.btn .glyphicon').hasClass('glyphicon-search')) {
           $('.btn .glyphicon-search').fadeOut('fast', function(){
@@ -25,6 +26,20 @@
       $(this).parent().addClass('cr-form-item--focused');
     }).on('blur', function(){
       $(this).parent().removeClass('cr-form-item--focused');
+    }).on('input', function(){
+      if (is_touch_device && $(this).val() === '') {
+        switchIcons();
+      }
+    });
+
+    /**
+     * Click of the clear button.
+     */
+    $('.btn .glyphicon').on('click', function(e){
+      if ($(this).hasClass('glyphicon-remove')) {
+        $('#search-input').val('').focus();
+        switchIcons();
+      }
     });
 
     /**
@@ -37,7 +52,9 @@
         return false;
       }
 
-      switchClasses();
+      if (is_touch_device) {
+        switchIcons();
+      }
 
       /**
        * Do a search!
@@ -66,16 +83,14 @@
         last_search = query;
       }
     });
-
-    /**
-     * Click of the clear button.
-     */
-    $('.btn .glyphicon').on('click', function(e){
-      if ($(this).hasClass('glyphicon-remove')) {
-        $('#search-input').val('');
-        switchClasses();
-      }
-    });
   });
 
 }(jQuery));
+
+
+
++function ($) {
+  'use strict';
+
+
+}(jQuery);
